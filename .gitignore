@@ -40,14 +40,17 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# development artifacts
+tsc_*.txt
+*.log
+
 # supabase
 supabase/.temp/
 supabase/.branches/
 
-# local dev artifacts
-tsc.log
-tsc_result.txt
-*.log
+# local dev artifacts and IDE settings
+.claude/
+.cursor/
 
 # os
 Thumbs.db
