@@ -39,3 +39,15 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# supabase
+supabase/.temp/
+supabase/.branches/
+
+# local dev artifacts
+tsc.log
+tsc_result.txt
+*.log
+
+# os
+Thumbs.db
