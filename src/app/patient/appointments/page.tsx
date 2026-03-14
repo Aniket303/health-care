@@ -1,6 +1,7 @@
 import Link from "next/link"
 
 import { AppointmentStatusBadge } from "@/components/appointment-status-badge"
+import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { createClient } from "@/lib/supabase/server"
@@ -90,9 +91,16 @@ export default async function PatientAppointmentsPage() {
                       </div>
                       <AppointmentStatusBadge status={appointment.status} />
                     </div>
-                    <p className="text-xs uppercase tracking-wider text-muted-foreground">
-                      {appointment.type}
-                    </p>
+                    <div className="flex items-center justify-between">
+                      <p className="text-xs uppercase tracking-wider text-muted-foreground">
+                        {appointment.type}
+                      </p>
+                      {appointment.type === "video" && appointment.status === "confirmed" && (
+                        <Link href={`/patient/appointments/${appointment.id}/call`}>
+                          <Button size="sm" className="bg-emerald-600 hover:bg-emerald-700 text-white">Join Call</Button>
+                        </Link>
+                      )}
+                    </div>
                   </div>
                 )
               })

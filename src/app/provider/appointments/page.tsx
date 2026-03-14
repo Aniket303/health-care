@@ -85,6 +85,11 @@ export default async function ProviderAppointmentsPage() {
                     <p className="text-xs uppercase tracking-wider text-muted-foreground">{appointment.type}</p>
                     <div className="flex items-center gap-2">
                       <ProviderAppointmentActions appointmentId={appointment.id} currentStatus={appointment.status} />
+                      {appointment.type === "video" && (appointment.status === "confirmed" || appointment.status === "scheduled") && (
+                        <Link href={`/provider/appointments/${appointment.id}/call`}>
+                          <Button size="sm" className="bg-emerald-600 hover:bg-emerald-700 text-white">Start Call</Button>
+                        </Link>
+                      )}
                       <Link href={`/provider/patients/${appointment.patient_id}`}>
                         <Button variant="ghost" size="sm">View Record</Button>
                       </Link>
